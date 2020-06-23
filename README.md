@@ -1,23 +1,5 @@
 **Comparative Assessment of High-Resolution Satellite-Based Building Footprint Extraction Methods**
 
 
-**Overview and Related Work**
-<br>
-Automatic extraction of building footprints from high resolution imagery can aid in environmental and disaster management by integrating its spatiotemporal distribution patterns within risk assessments and urban planning efforts. However, deriving a reliable and efficient building extraction method has presented challenges mainly due to regional differences in development type (e.g. rural vs metropolitan), as well as the sheer varieties in building characteristics (e.g. color, shape, materials) (Li et al. 2019). 
-<br>
-
-**Proposed Work**
-<br>
-*Objective:* 
-<br>We intend to compare different machine learning algorithms for image classification to develop a general method for building extraction from high-resolution remote sensing images.
-<br>
-<br>
-*Datasets:* 
-<br> There are a number of annotated datasets, including SpaceNet, SAT-6 airborne, and Open Cities AI datasets which offer ready-to-use labelled training/testing data across various regions, and spatial/spectral resolutions (Table 1). Furthermore, the use of OpenStreetMap GIS data along with NAIP imagery via GEE is also an option (depending on our ROI). The building footprint from OSM can be converted into a single-band binary image (0: non-building 1: building). Further investigation on coverage/quality may be needed. 
-<br>
-<br>
-*Methods & Model Selection*
-<br> Unsupervised: K-means, spectral clustering, hierarchical  clustering, shift invariance feature transform(SIFT), simple linear iterative clustering (SLIC) segmentation, Felzenszwaib segmentation...
-Supervised: two trajectories: pixel-based and object-based (objects from segmentation)
-KNN, maximum likelihood, SVM, random forest, XGBoost, random walker segmentation, simple 2-layer ANN…
-Deep learning methods: Mask R-CNN
+**Overview**
+In this project, we intend to compare different machine learning algorithms for image classification to develop a general framework for fire-induced building damage evaluation from high-resolution remotely sensed imagery in California.Our results show promising utility for machine learning models, based on spectral, texture, and convolutional features, in the applications for post-fire building-damage monitoring. For the binary classification scheme, the Random Forest (RF) classifier performed the best (Table II) with an overall accuracy of 93% and a Cohen’s kappa of 0.73. For the multiclass scheme (i.e without vegetation mask), XGBoost performed better than the 5-layer neural networks. It is able to detect building areas but is less accurate in predicting damage when compared with the binary case. Feature engineering also proved to be an essential step in model building. Particularly, the addition of SNIC segmentation which greatly aided in the improvement of overall model performance for both RF and XGBoost classifiers.
