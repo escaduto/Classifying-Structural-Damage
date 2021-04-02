@@ -21,6 +21,7 @@ The xView 2 Building Damage Assessment dataset provides annotated building footp
   <figcaption>Figure 1. XView dataset overlaid on top of NAIP imagery in study region (a) Southern California (i.e. Woolsey fire) and (b) Santa Rosa (i.e. Carr fire). </figcaption>
 </figure>
 
+<br />
 The National Agriculture Imagery Program (NAIP) satellite images are acquired at 0.6-1m resolution GSD with Red, Green, Blue (RGB) and near-infrared band (NIR). Since 2009, NAIP imagery has been acquired every three years. Based on fire events instances focused in this study, NAIP images were obtained for pre-fire condition in 2015 and post-fire conditions in 2018. 
 
 ## Modeling Framework 
@@ -30,6 +31,7 @@ The National Agriculture Imagery Program (NAIP) satellite images are acquired at
   <figcaption>Figure 2. High-level project pipline. </figcaption>
 </figure>
 
+<br />
 To inform the final classification outputs, a number of indices were derived taking advantage of NAIP’s RGB & NIR bands, along with object-based layers including segmentation and geometric feature extractions (e.g. canny edge detection, compactness, etc.). Both pre- and post-fire data were selected as inputs in the model to inform image changes of damaged areas.
 
 ## Results 
@@ -46,6 +48,7 @@ For the binary classification with mask, random forest classifier performs the b
   <figcaption>Figure 3. (a) Visually illustrates the Random Forest classification output (b) Annotated dataset from XView for comparative purposes. </figcaption>
 </figure>
 
+<br />
 Producer and user accuracies of each class show
 higher accuracy for no-damage areas relative to destroyed building footprints (Table II). Overall, a higher percentage of false negatives are seen with omission errors for destroyed class at 31% , while only 2% were observed in the no-damage class.
 
@@ -53,8 +56,10 @@ higher accuracy for no-damage areas relative to destroyed building footprints (T
   <img src="./docs/assets/table2.png" alt="table2">
   <figcaption>Table II. Confusion matrix comparing Random Forest classified results with xView ground-based assessment results. </figcaption>
 </figure>
-
+<br />
 For the multiclass problem without vegetation mask, XGBoost performs better than 5-layer neural networks although the latter has relatively higher overall accuracy (90.4% vs. 90.9%).
+
+<br />
 
 As for the neural networks, the 2-layer network has an accuracy of 80.3% but achieved better predictions than the 5-layer network when visually evaluated. However, the 2-layer network has the same problem as the XGBoost and omits more buildings.
 
@@ -71,7 +76,7 @@ Overall, important feature layers that contributed to the RF classifications inc
   <img src="./docs/assets/Figure4.png" alt="Figure4">
   <figcaption>Figure 5. Feature importance from (a) CART and (b) Random Forest </figcaption>
 </figure>
-
+<br />
 Important features for XGBoost are SNIC segmentation and convolutions (shape and manhattan) of red and NIR channels. 
 
 <figure class="image">
